@@ -25,4 +25,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-print(settings.DATABASE_URL())
+# print(settings.DATABASE_URL)
