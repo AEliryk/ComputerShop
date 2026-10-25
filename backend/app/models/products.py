@@ -1,12 +1,13 @@
 from sqlalchemy import Integer, String, Boolean, Float, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import TYPE_CHECKING
+from backend.app.db.base import Base
 
 if TYPE_CHECKING:
     from backend.app.models.categories import Categories
 
 
-class Products:
+class Products(Base):
     __tablename__ = "products"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
