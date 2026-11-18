@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.app.db.session import get_db
-from backend.app.services.categories import CategoryService
-from backend.app.schemas.categories import CategoryCreate, CategoryUpdate, CategoryRead, CategoryWithProducts
+from db.session import get_db
+from services.categories import CategoryService
+from schemas.categories import CategoryCreate, CategoryUpdate, CategoryRead, CategoryWithProducts
 
 router = APIRouter(prefix="/categories", tags=["Categories"])
 

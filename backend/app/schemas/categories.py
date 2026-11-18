@@ -1,5 +1,9 @@
+from __future__ import annotations
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from schemas.products import ProductRead
 
 
 class CategoryBase(BaseModel):
@@ -29,7 +33,6 @@ class CategoryRead(CategoryBase):
 
 class CategoryWithProducts(CategoryRead):
     """Схема категории с вложенным списком продуктов"""
-    from backend.app.schemas.products import ProductRead
     products: list[ProductRead] = []
 
     model_config = {"from_attributes": True}

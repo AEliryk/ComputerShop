@@ -1,8 +1,8 @@
 from typing import Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.app.repositories.categories import CategoryRepository
-from backend.app.schemas.categories import CategoryCreate, CategoryUpdate, CategoryRead, CategoryWithProducts
+from repositories.categories import CategoryRepository
+from schemas.categories import CategoryCreate, CategoryUpdate, CategoryRead, CategoryWithProducts
 
 
 class CategoryService:
@@ -14,6 +14,8 @@ class CategoryService:
     async def get_all_categories(self) -> list[CategoryRead]:
         """Получить все категории"""
         categories = await self.repo.get_all()
+        if not categories:
+            return []
         return [CategoryRead.model_validate(c) for c in categories]
 
     async def get_category_by_id(self, category_id: int) -> Optional[CategoryRead]:

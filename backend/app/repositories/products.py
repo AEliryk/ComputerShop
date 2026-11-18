@@ -3,8 +3,8 @@ from sqlalchemy import select, update, delete
 from sqlalchemy.orm import selectinload
 from typing import Optional
 
-from backend.app.models.products import Products
-from backend.app.schemas.products import ProductCreate, ProductUpdate
+from models.products import Products
+from schemas.products import ProductCreate, ProductUpdate
 
 
 class ProductRepository:

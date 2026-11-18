@@ -1,8 +1,8 @@
 from typing import Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.app.repositories.products import ProductRepository
-from backend.app.schemas.products import ProductCreate, ProductUpdate, ProductRead
+from repositories.products import ProductRepository
+from schemas.products import ProductCreate, ProductUpdate, ProductRead
 
 
 class ProductService:

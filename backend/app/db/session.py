@@ -1,10 +1,10 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
-from app.config import settings
+from config import settings
 from typing import AsyncGenerator
 
 # Создаем асинхронный движок SQLAlchemy
 engine = create_async_engine(
-    settings.get_db_url,
+    settings.DATABASE_URL,
     echo=True, # Логируем SQL-запросы в консоль
 )
 

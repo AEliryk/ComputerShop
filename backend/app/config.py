@@ -1,20 +1,23 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Optional
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent  # -> ComputerShop/
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env-prod",
+        env_file=str(BASE_DIR / ".env"),
         env_file_encoding="utf-8",
         extra="ignore",
     )
 
     # PostgreSQL
-    POSTGRES_USER: Optional[str | None]
-    POSTGRES_PASSWORD: Optional[str | None] 
-    POSTGRES_DB: Optional[str | None] 
-    POSTGRES_HOST: Optional[str | None] 
-    POSTGRES_PORT: Optional[int | None] 
+    POSTGRES_USER: Optional[str] = None
+    POSTGRES_PASSWORD: Optional[str] = None
+    POSTGRES_DB: Optional[str] = None
+    POSTGRES_HOST: Optional[str] = None
+    POSTGRES_PORT: Optional[int] = None
 
     @property
     def DATABASE_URL(self) -> str:

@@ -3,8 +3,8 @@ from sqlalchemy import select, update, delete
 from sqlalchemy.orm import selectinload
 from typing import Optional
 
-from backend.app.models.categories import Categories
-from backend.app.schemas.categories import CategoryCreate, CategoryUpdate
+from models.categories import Categories
+from schemas.categories import CategoryCreate, CategoryUpdate
 
 
 class CategoryRepository:
